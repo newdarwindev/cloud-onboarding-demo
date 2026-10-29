@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Synthetic-only cloud onboarding demo",
+  "description": "Closed demo format. Not for real accounts or real approval records. Cross-record and lifecycle rules are checked by scripts/validate.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mock",
+    "notice",
+    "providers"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "mock": {
+      "type": "boolean",
+      "const": true
+    },
+    "notice": {
+      "type": "string",
+      "const": "SYNTHETIC DEMO ONLY - NOT REAL ACCOUNT STATUS OR AUTHORIZATION"
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "provider",
+          "official_documentation",
+          "phase",
+          "status",
+          "approval_reference",
+          "human_assignee",
+          "verification_result",
+          "action",
+          "reason",
+          "prerequisites",
+          "cost_assessment",
+          "permissions_assessment",
+          "credit_status",
+          "acceptance_check",
+          "outcome",
+          "automatic_approval",
+          "live_actions_executed"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "MOCK-AWS",
+              "MOCK-AZURE",
+              "MOCK-GOOGLE-CLOUD",
+              "MOCK-CLOUDFLARE",
+              "MOCK-LLM"
+            ]
+          },
+          "provider": {
+            "type": "string",
+            "enum": [
+              "AWS",
+              "Azure",
+              "Google Cloud",
+              "Cloudflare",
+              "LLM providers"
+            ]
+          },
+          "official_documentation": {
+            "type": "string",
+            "enum": [
+              "https://docs.aws.amazon.com/",
+              "https://learn.microsoft.com/en-us/azure/",
+              "https://docs.cloud.google.com/docs",
+              "https://developers.cloudflare.com/",
+              "MOCK: Provider selection pending"
+            ]
+          },
+          "phase": {
+            "type": "string",
+            "enum": [
+              "research",
+              "owner_approval",
+              "human_security_handoff",
+              "authorized_verification"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "planned",
+              "blocked",
+              "ready_for_mock_review",
+              "verified_mock"
+            ]
+          },
+          "approval_reference": {
+            "type": "string",
+            "enum": [
+              "NOT_REQUESTED",
+              "MOCK-APPROVAL-REFERENCE"
+            ]
+          },
+          "human_assignee": {
+            "type": "string",
+            "enum": [
+              "UNASSIGNED",
+              "MOCK-VERIFIED-HUMAN"
+            ]
+          },
+          "verification_result": {
+            "type": "string",
+            "enum": [
+              "NOT_RUN",
+              "MOCK-PASS"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "const": "MOCK: Review onboarding prerequisites"
+          },
+          "reason": {
+            "type": "string",
+            "const": "MOCK: Demonstrate safe human handoff planning"
+          },
+          "prerequisites": {
+            "type": "string",
+            "const": "MOCK: Verify scope and owner identity privately"
+          },
+          "cost_assessment": {
+            "type": "string",
+            "const": "MOCK: Not assessed; no spend authorized"
+          },
+          "permissions_assessment": {
+            "type": "string",
+            "const": "MOCK: None granted"
+          },
+          "credit_status": {
+            "type": "string",
+            "const": "MOCK: Unknown; not promised"
+          },
+          "acceptance_check": {
+            "type": "string",
+            "const": "MOCK: Review synthetic evidence only"
+          },
+          "outcome": {
+            "type": "string",
+            "const": "MOCK: No live provider action performed"
+          },
+          "automatic_approval": {
+            "type": "boolean",
+            "const": false
+          },
+          "live_actions_executed": {
+            "type": "boolean",
+            "const": false
+          }
+        }
+      }
+    }
+  }
+}

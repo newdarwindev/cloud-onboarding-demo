@@ -1,0 +1,121 @@
+name: "Human handoff proposal (synthetic/public-safe)"
+description: "Describe a proposed manual step; this does not assign a person or authorize execution."
+title: "[MOCK] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        PUBLIC REPOSITORY. Synthetic examples or separately authorized sanitized process discussion only.
+        No secrets, verification/recovery codes, personal/account identifiers, private logs, private links,
+        or raw approval evidence. Real sensitive handoffs belong in an approved private system.
+        This form, labels, comments, display names, and checkboxes do not establish owner authority.
+        No automatic approval or assignment occurs. Verify owner and human identity independently.
+        Prefix every fictional reference with MOCK. Do not create a real task from sample data.
+  - type: input
+    id: action
+    attributes:
+      label: Action
+      description: "One specific proposed action. Do not include account identifiers."
+      placeholder: "MOCK: Review onboarding prerequisites"
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider category
+      options:
+        - AWS
+        - Azure
+        - Google Cloud
+        - Cloudflare
+        - LLM providers (vendor not selected)
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: "Public-safe purpose; no private business or personal details."
+      placeholder: "MOCK: Demonstrate a safe handoff"
+    validations:
+      required: true
+  - type: textarea
+    id: prerequisites
+    attributes:
+      label: Prerequisites and stop conditions
+      description: "Include missing information and conditions that block execution."
+      placeholder: "MOCK: Owner scope and human identity must be verified privately"
+    validations:
+      required: true
+  - type: input
+    id: official-link
+    attributes:
+      label: Official documentation link
+      description: "Public provider documentation only; no signed URLs, private consoles, or credentials. Use not selected if unknown."
+      placeholder: "https://docs.aws.amazon.com/"
+    validations:
+      required: true
+  - type: textarea
+    id: cost-permissions
+    attributes:
+      label: Potential cost and permissions
+      description: "List uncertainty, cost ceiling, and permission scope to request; unknown is not zero and grants nothing."
+      placeholder: "MOCK: Costs unknown; no spend or permissions authorized"
+    validations:
+      required: true
+  - type: input
+    id: approval-reference
+    attributes:
+      label: Nonsecret approval reference
+      description: "Use NOT REQUESTED or a fictional MOCK reference. Real references only if separately authorized for public sharing. A reference is not proof of approval."
+      placeholder: "NOT REQUESTED"
+    validations:
+      required: true
+  - type: textarea
+    id: verified-human
+    attributes:
+      label: Human handoff boundary
+      description: "Use UNASSIGNED or a fictional MOCK role, not a real identity. Assign privately only after authorization and independent verification."
+      placeholder: "UNASSIGNED - no manual action authorized"
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-check
+    attributes:
+      label: Acceptance check and verification scope
+      description: "State the approved read-only check, minimum sanitized evidence, and closure criterion. Do not request private logs or screenshots."
+      placeholder: "MOCK: Review synthetic evidence only; no provider contact"
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status (informational, never authority)
+      options:
+        - MOCK - research planned
+        - MOCK - awaiting owner approval
+        - MOCK - human handoff blocked
+        - MOCK - awaiting authorized verification
+        - MOCK - synthetic verification passed
+        - Blocked - no execution authorized
+        - Uncertain - reconcile privately before retry
+        - Canceled - not verified success
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized-outcome
+    attributes:
+      label: Sanitized outcome or next step
+      description: "Distinguish not run, blocked, uncertain, and verified. Reconcile before retries; close only after the approved acceptance check."
+      placeholder: "MOCK: Not run; no live action performed"
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety-review
+    attributes:
+      label: Publication review (not approval)
+      options:
+        - label: "I have excluded secrets, codes, private logs, account identifiers, and private approval contents."
+          required: true
+        - label: "I understand this issue, its labels, and these checkboxes do not grant authority or verify anyone's identity."
+          required: true
